@@ -1,4 +1,6 @@
 # twitter-service-api
+![image](https://user-images.githubusercontent.com/77387431/136690692-8a261d59-7f71-464c-93f4-20da23fa952d.png)
+
 ## Details
 Please refer to DemoTwitterService.mov or access website :
 Demo: http://twitter-service-demo.s3-website-us-east-1.amazonaws.com/
