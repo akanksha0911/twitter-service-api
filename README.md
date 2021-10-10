@@ -14,6 +14,20 @@ Demo: http://twitter-service-demo.s3-website-us-east-1.amazonaws.com/
 
 
 ## Resources
+## Flask configuration example
+
+<p align="center">
+  <img src="https://logandk.github.io/serverless-wsgi/assets/hello-world.svg">
+</p>
+
+This example assumes that you have intialized your application as `app` inside `api.py`.
+
+```
+project
+├── api.py
+├── requirements.txt
+└── serverless.yml
+```
 ### CLOUDFORMATION
 <img width="1792" alt="image" src="https://user-images.githubusercontent.com/77387431/136689681-ef60157e-7ef7-4961-818d-b70ea4fa88d9.png">
 
