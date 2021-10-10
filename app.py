@@ -18,10 +18,6 @@ def get_secret():
         region_name=region_name
     )
 
-    # In this sample we only handle the specific exceptions for the 'GetSecretValue' API.
-    # See https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
-    # We rethrow the exception by default.
-
     try:
         get_secret_value_response = secret_client.get_secret_value(
             SecretId=secret_name
@@ -73,8 +69,8 @@ client = oauth.Client(consumer, access_token)
 @app.route("/sendTweet", methods=["POST", "GET"])
 def tweet():
     print(request.json['text'])
-    timeline_endpoint = "https://api.twitter.com/1.1/statuses/update.json?status=" + request.json['text']
-    response, data = client.request(timeline_endpoint, method="POST")
+    endpoint = "https://api.twitter.com/1.1/statuses/update.json?status=" + request.json['text']
+    response, data = client.request(endpoint, method="POST")
 
     resp = make_response(data)  # here you could use make_response(render_template(...)) too
     resp.headers['Access-Control-Allow-Origin'] = '*'
@@ -84,8 +80,8 @@ def tweet():
 @app.route("/getTweet", methods=["POST", "GET"])
 def get_tweet():
     print(request.json['id'])
-    timeline_endpoint = "https://api.twitter.com/1.1/statuses/lookup.json?id=" + request.json['id']
-    response, data = client.request(timeline_endpoint, method="GET")
+    endpoint = "https://api.twitter.com/1.1/statuses/lookup.json?id=" + request.json['id']
+    response, data = client.request(endpoint, method="GET")
 
     resp = make_response(data)  # here you could use make_response(render_template(...)) too
     resp.headers['Access-Control-Allow-Origin'] = '*'
@@ -95,8 +91,8 @@ def get_tweet():
 @app.route("/deleteTweet", methods=["POST", "GET"])
 def delete_tweet():
     print(request.json['id'])
-    timeline_endpoint = "https://api.twitter.com/1.1/statuses/destroy/" + request.json['id'] + ".json"
-    response, data = client.request(timeline_endpoint, method="POST")
+    endpoint = "https://api.twitter.com/1.1/statuses/destroy/" + request.json['id'] + ".json"
+    response, data = client.request(endpoint, method="POST")
 
     resp = make_response(data)  # here you could use make_response(render_template(...)) too
     resp.headers['Access-Control-Allow-Origin'] = '*'

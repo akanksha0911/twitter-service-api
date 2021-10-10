@@ -24,3 +24,7 @@ setuptools
 filelock
 boto3
 botocore
+s3transfer
+jmespath
+python-dateutil
+pytest
